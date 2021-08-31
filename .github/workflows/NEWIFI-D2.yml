@@ -10,16 +10,18 @@
 # <https://github.com/LemoFire/autoOpenWrt>
 #
 
-name: NEWIFI-D2
 
+name: Newifi_D2
+
+### 以下内容请保持不变 (请修改下方: 环境变量设置)
 on:
-  push:
-    branches: 
-      - master
-  schedule:
-    - cron: 0 */12 * * *
-  watch:
-    types: started
+  repository_dispatch:
+  workflow_dispatch:
+    inputs:
+      ip_addr:
+        description: '固件 IP 地址 [可选]'
+        default: ''
+### END
 
 jobs:
   build:
